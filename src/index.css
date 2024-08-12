@@ -1,3 +1,84 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  * {
+    @apply p-0 m-0 font-sans;
+  }
+
+  .ui.cards > .card > .image {
+    @apply h-[250px] p-5 bg-white mx-auto;
+  }
+
+  .ui.cards > .card > .image > img {
+    @apply h-full max-w-full w-auto;
+  }
+
+  .ui.cards > .card > .content > .header {
+    @apply h-12 overflow-hidden mb-1.5;
+  }
+
+  .ui.cards > .card > .content > .description {
+    @apply h-9 overflow-hidden mb-0;
+  }
+
+  .ui.cards > .card .meta.price {
+    @apply mb-1.5 text-lg text-gray-800 font-semibold;
+  }
+
+  .ui.cards > .card .meta.price > a {
+    @apply text-xl text-gray-900;
+  }
+
+  .ui.menu.fixed {
+    @apply h-[60px] pt-3.5;
+  }
+
+  .ui.grid.container {
+    @apply mt-11;
+  }
+
+  .ui.grid > .row {
+    @apply bg-white;
+  }
+
+  .ui.grid > .row > .column.lp {
+    @apply p-[20px] pl-[40px] self-start;
+  }
+
+  .ui.grid > .row > .column.rp {
+    @apply p-[20px] pr-[40px] text-left self-start;
+  }
+
+  .ui.grid > .row > .column > img,
+  .ui.grid > .row > img {
+    @apply h-full;
+  }
+
+  .ui.placeholder .header:not(:first-child):before,
+  .ui.placeholder .image:not(:first-child):before,
+  .ui.placeholder .paragraph:not(:first-child):before {
+    @apply hidden;
+  }
+
+  .ui.label,
+  .ui.labels .label {
+    @apply text-[22px];
+  }
+
+  .column.rp h1 {
+    @apply text-gray-800;
+  }
+
+  .column.rp p {
+    @apply text-lg text-gray-500;
+  }
+
+  .ui.placeholder.segment .column .button,
+  .ui.placeholder.segment .column .field,
+  .ui.placeholder.segment .column textarea,
+  .ui.placeholder.segment .column > .ui.input {
+    @apply bg-[#ff3e6c] border-[#ff3e6c] text-white text-lg ml-0;
+  }
+}
