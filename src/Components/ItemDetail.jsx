@@ -1,14 +1,13 @@
-import axios from "axios";
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  selectedItem,
-  removeSelectedItem,
-} from "../redux/actions/productActions";
+// import {
+//   selectedItem,
+//   removeSelectedItem,
+// } from "../redux/actions/productActions";
 
 
 const ItemDetail = () => {
-  const { ItemId } = useParams();
+//   const { ItemId } = useParams();
   let item = useSelector((state) => state.product);
   const { image, title, price, category, description } = item;
 
