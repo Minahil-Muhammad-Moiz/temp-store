@@ -2,8 +2,8 @@ import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
 const Item = () => {
-  const products = useSelector((state) => state.products);
-  const renderList = products.map((item) => {
+  const data = useSelector((state) => state.product);
+  const renderList = data.products.map((item) => {
     const { id, title, image, price, category } = item;
     return (
       <div className="four wide column" key={id}>

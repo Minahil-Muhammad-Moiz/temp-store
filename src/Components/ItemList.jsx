@@ -6,17 +6,21 @@ import { fetchData } from "../features/productSlice";
 
 const ItemList = () => {
   const dispatch = useDispatch();
-  const data = useSelector((state) => state);
+  const data = useSelector((state) => state.product);
 
   useEffect(() => {
     dispatch(fetchData());
   }, []);
-
+  console.log(data.products);
+  
   return (
     <div className="ui grid container">
-      {data.isLoading ? <>Loading...</>: 
-        data.products?.map((item) => <Item key={item.id} item={item} />)
-      }
+      {data.isLoading ? (
+        <>Loading...</>
+      ) : (
+        data.products?.map((item) => 
+        <Item key={item.id} item={item} />)
+      )}
     </div>
   );
 };
