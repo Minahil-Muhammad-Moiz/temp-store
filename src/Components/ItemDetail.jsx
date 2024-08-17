@@ -1,33 +1,26 @@
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-// import {
-//   selectedItem,
-//   removeSelectedItem,
-// } from "../redux/actions/productActions";
-
+import { fetchDetail, removeSelectedItem } from "../features/detailSlice";
+import { useEffect } from "react";
 
 const ItemDetail = () => {
-//   const { ItemId } = useParams();
-  let item = useSelector((state) => state.product);
-  const { image, title, price, category, description } = item;
-
   const dispatch = useDispatch();
+  const { itemId } = useParams();
+  const item = useSelector((state) => state.detail);
 
-  const fetchItemDetail = async (id) => {
-    const response = await axios
-      .get(`https://fakestoreapi.com/products/${id}`)
-      .catch((err) => {
-        console.log("Error: ", err);
-      });
-    dispatch(selectedItem(response.data));
-  };
+  const { image, title, price, category, description } = item.product;
 
   useEffect(() => {
-    if (ItemId && ItemId !== "") fetchItemDetail(ItemId);
+    if (itemId && itemId !== "") {
+      dispatch(fetchDetail(itemId));
+    }
+    // Cleanup function
     return () => {
-      dispatch(removeSelectedItem());
+      dispatch(removeSelectedItem()); // Replace with your cleanup action
     };
-  }, [ItemId]);
+    F;
+  }, [itemId]);
+  // console.log(item, title);
   return (
     <div className="ui grid container">
       {Object.keys(item).length === 0 ? (
