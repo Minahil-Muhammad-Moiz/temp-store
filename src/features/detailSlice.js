@@ -6,21 +6,16 @@ const initialState = {
   error: false,
 };
 
-export const fetchDetail = createAsyncThunk('fetchData', async (id) => {
-    const response = await fetch(`https://fakestoreapi.com/products/${id}`);
-    const data = await response.json();
-    // console.log(data)
-    return data;
+export const fetchDetail = createAsyncThunk("fetchData", async (id) => {
+  const response = await fetch(`https://fakestoreapi.com/products/${id}`);
+  const data = await response.json();
+  // console.log(data)
+  return data;
 });
 
 const detailSlice = createSlice({
   name: "detail",
   initialState,
-  reducers:{
-    removeSelectedItem: (state) => {
-      state.product = null; // Reset the item to an empty object
-    },
-  },
   extraReducers: (builder) => {
     builder.addCase(fetchDetail.fulfilled, (state, action) => {
       state.isloading = false;

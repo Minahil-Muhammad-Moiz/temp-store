@@ -8,11 +8,11 @@ const ItemList = () => {
   const dispatch = useDispatch();
   const data = useSelector((state) => state.product);
   const products = data.products
-  console.log(products)
-  
+
+  // console.log(products)
   useEffect(() => {
     dispatch(fetchData());
-  }, []);
+  }, [dispatch]);
   // console.log(data.products);
   
   return (

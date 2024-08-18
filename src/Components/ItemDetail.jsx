@@ -1,26 +1,22 @@
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchDetail, removeSelectedItem } from "../features/detailSlice";
+import { fetchDetail } from "../features/detailSlice";
 import { useEffect } from "react";
 
 const ItemDetail = () => {
   const dispatch = useDispatch();
   const { itemId } = useParams();
   const item = useSelector((state) => state.detail);
-
+  // console.log(item.product);
+  
   const { image, title, price, category, description } = item.product;
 
   useEffect(() => {
     if (itemId && itemId !== "") {
       dispatch(fetchDetail(itemId));
     }
-    // Cleanup function
-    return () => {
-      dispatch(removeSelectedItem()); // Replace with your cleanup action
-    };
-    F;
   }, [itemId]);
-  // console.log(item, title);
+
   return (
     <div className="ui grid container">
       {Object.keys(item).length === 0 ? (
