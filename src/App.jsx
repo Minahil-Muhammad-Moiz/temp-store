@@ -1,21 +1,16 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Header from "./Components/Header";
-import ItemList from "./Components/ItemList";
-import ItemDetail from "./Components/ItemDetail";
+import { useState } from 'react'
+import reactLogo from './assets/react.svg'
+import viteLogo from '/vite.svg'
+import './App.css'
 
-const App = () => {
+function App() {
+  const [count, setCount] = useState(0)
+
   return (
-    <div className="App">
-      <Router>
-        <Header />
-        <Routes>
-          <Route path="/" exact element={<ItemList />} />
-          <Route path="/item/:itemId" element={<ItemDetail />} />
-          <Route>Error 404. Not Found!</Route>
-        </Routes>
-      </Router>
-    </div>
-  );
-};
+    <>
+      <h1 className='text-4xl text-red-400'>HELLO WORLD!</h1>
+    </>
+  )
+}
 
-export default App;
+export default App
